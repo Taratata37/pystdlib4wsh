@@ -1,0 +1,18 @@
+<job>
+<script language="JScript" src="IO.js"/>
+<script language="JScript" src="requests.js"/>
+<script language="JScript">
+	function download(Source, Target){
+		var data = get(Source);
+
+		// Create the Data Stream
+		var fichier = open(Target,"wb"); // b: binary & w: truncate if exists
+		
+		fichier.write(data);
+		fichier.close();
+	}
+
+	download("https://raw.githubusercontent.com/Taratata37/pyStdLib4wsh/main/IO.js", "IO1.js");
+	download("https://raw.githubusercontent.com/Taratata37/pyStdLib4wsh/main/requests.js", "requests1.js");
+</script>
+</job>

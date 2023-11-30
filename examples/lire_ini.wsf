@@ -1,0 +1,29 @@
+<job>
+<script language="JScript" src="outils.js"/>
+<script language="JScript">
+	if (interpreteur()!=="cscript"){
+		WScript.Echo("Ce programme doit être lancé en ligne de commande");
+		WScript.quit();
+	}
+</script>
+
+<script language="JScript" src="IO.js"/>
+<script language="JScript">
+	var fso = new ActiveXObject("Scripting.FileSystemObject");
+	var args = WScript.Arguments;
+	var nom_fichier = args.Item(0);
+	var section = args.Item(1);
+	var cle = args.Item(2);
+
+	// Vérification de l'existence du fichier
+	if (!fso.FileExists(nom_fichier)) {
+		throw new Error("Fichier introuvable: ${nom_fichier}");
+	} else {
+		var ofichier = open(nom_fichier, "r", "utf-8", "\r\n");
+		confpars = new configparser();
+		confpars.read_file(ofichier);
+		ofichier.close();
+		WScript.Echo(confpars.get(section,cle));
+	}
+</script>
+</job>
