@@ -3,7 +3,7 @@
 <script language="JScript" src="requests.js"/>
 <script language="JScript">
 	function download(Source, Target){
-		var data = get(Source);
+		var data = urlopen(Source).read();
 
 		// Create the Data Stream
 		var fichier = open(Target,"wb"); // b: binary & w: truncate if exists
@@ -12,7 +12,6 @@
 		fichier.close();
 	}
 
-	download("https://raw.githubusercontent.com/Taratata37/pyStdLib4wsh/main/IO.js", "IO1.js");
-	download("https://raw.githubusercontent.com/Taratata37/pyStdLib4wsh/main/requests.js", "requests1.js");
+	download("https://raw.githubusercontent.com/Taratata37/pystdlib4wsh/main/src/IO.js", "IO1.js");
 </script>
 </job>
