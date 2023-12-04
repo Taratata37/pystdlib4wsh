@@ -5,3 +5,4 @@ Implémentation en Javascript de la bibiliothèque standard python pour WSH
  - [IO](https://docs.python.org/fr/3/library/io.html)
  - [configparser](https://docs.python.org/fr/3/library/configparser.html)
  - [requests](https://docs.python.org/fr/3/library/urllib.request.html)
+ - [os](https://docs.python.org/fr/3/library/os.html?highlight=os#module-os)
