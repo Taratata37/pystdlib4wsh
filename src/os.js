@@ -53,3 +53,20 @@ os.path.getmtime = function (strpath){
 	var f = os.__fso.getFile(strpath);
 	return f.DatelastModified;
 }
+
+os.path.split = function(strpath){
+	var lastSlashIndex = strpath.lastIndexOf('/');
+	var lastPointIndex = strpath.lastIndexOf('.');
+	if (lastPointIndex === -1) {
+		lastPointIndex = strpath.length;
+	}
+	if (lastSlashIndex === -1) {
+		return ['', strpath.substring(lastSlashIndex + 1, lastPointIndex)];
+	} else {
+		return [strpath.slice(0, lastSlashIndex), strpath.substring(lastSlashIndex + 1, lastPointIndex)];
+	}
+}
+
+os.path.basename = function(strpath){
+	return os.path.split(strpath)[1];
+}
