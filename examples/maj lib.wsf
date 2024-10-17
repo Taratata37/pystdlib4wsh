@@ -1,0 +1,21 @@
+<job>
+<script language="JScript" src="IO.js"/>
+<script language="JScript" src="request.js"/>
+<script language="JScript">
+	function download(Source, Target){
+		var data = request.urlopen(Source).read();
+
+		// Create the Data Stream
+		var fichier = open(Target,"wb"); // b: binary & w: truncate if exists
+		
+		fichier.write(data);
+		fichier.close();
+	}
+
+	download("https://raw.githubusercontent.com/Taratata37/pystdlib4wsh/main/src/os.js", "os.js");
+	download("https://raw.githubusercontent.com/Taratata37/pystdlib4wsh/main/src/IO.js", "IO.js");
+	download("https://raw.githubusercontent.com/Taratata37/pystdlib4wsh/main/src/outils.js", "outils.js");
+	download("https://raw.githubusercontent.com/Taratata37/pystdlib4wsh/main/src/request.js", "request.js");
+	download("https://raw.githubusercontent.com/Taratata37/pystdlib4wsh/main/examples/lire_ini.wsf", "lire_ini.wsf");
+</script>
+</job>
