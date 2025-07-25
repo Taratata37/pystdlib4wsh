@@ -68,5 +68,5 @@ os.path.split = function(strpath){
 }
 
 os.path.basename = function(strpath){
-	return os.path.split(strpath)[1];
+	return strpath.split(/[\\/]/).pop();
 }
