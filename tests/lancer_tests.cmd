@@ -8,21 +8,20 @@ set "total=0"
 echo ================================
 echo  Lancement des tests .wsf
 echo ================================
+echo  Ce script liste les fichiers .wsf présents et les exécute les uns après les autres.
 
-for %%F in (*.wsf) do (
-    if /I not "%%F"=="run_all_tests.bat" (
-        set /a total+=1
-        echo.
-        echo ▶ Exécution de %%F
-        cscript //nologo "%%F"
-        if errorlevel 1 (
-            echo ❌ Échec de %%F
-            set /a failures+=1
-        ) else (
-            echo ✅ Succès de %%F
-        )
-        echo --------------------------------
-    )
+for %%F in (test_*.wsf) do (
+	set /a total+=1
+	echo.
+	echo ▶ Exécution de %%F
+	cscript //nologo "%%F"
+	if errorlevel 1 (
+		echo ❌ Échec de %%F
+		set /a failures+=1
+	) else (
+		echo ✅ Succès de %%F
+	)
+	echo --------------------------------
 )
 
 echo.
